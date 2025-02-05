@@ -12,7 +12,6 @@ import Recent from './Menus/Recent'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Badge from '@mui/material/Badge'
-import MailIcon from '@mui/icons-material/Mail'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
@@ -47,12 +46,12 @@ function AppBar() {
 
         <Tooltip title="Notifications" sx={{ cursor: 'pointer' }}>
           <Badge badgeContent={4} color="secondary">
-            <NotificationsNoneIcon color="action" />
+            <NotificationsNoneIcon color="action" sx={{ color: 'primary.main' }} />
           </Badge>
         </Tooltip>
 
         <Tooltip title="Help" sx={{ cursor: 'pointer' }}>
-          <HelpOutlineIcon />
+          <HelpOutlineIcon sx={{ color: 'primary.main' }}/>
         </Tooltip>
 
         <Profiles />
