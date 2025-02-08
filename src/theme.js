@@ -1,4 +1,4 @@
-import { cyan, deepOrange, orange, teal } from '@mui/material/colors'
+// import { cyan, deepOrange, orange, teal } from '@mui/material/colors'
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 
 // Create a theme instance.
@@ -8,18 +8,18 @@ const theme = extendTheme({
     boardBarHeight: '58px'
   },
   colorSchemes: {
-    light: {
-      palette: {
-        primary: teal,
-        secondary: deepOrange
-      }
-    },
-    dark: {
-      palette: {
-        primary: cyan,
-        secondary: orange
-      }
-    }
+    // light: {
+    //   palette: {
+    //     primary: teal,
+    //     secondary: deepOrange
+    //   }
+    // },
+    // dark: {
+    //   palette: {
+    //     primary: cyan,
+    //     secondary: orange
+    //   }
+    // }
   },
   components: {
     MuiCssBaseline: {
@@ -42,24 +42,28 @@ const theme = extendTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'capitalize'
+          textTransform: 'capitalize',
+          borderWidth: 0.5
         }
       }
     },
     MuiOutlinedInput: {
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+          // color: theme.palette.primary.main,
           fontSize: 'small',
-          '.MuiOutlinedInput-notchedOutline': {
-            borderColor: theme.palette.primary.light
-          },
-          '&:hover': {
-            '.MuiOutlinedInput-notchedOutline': {
-              borderColor: theme.palette.primary.main
-            }
-          },
+          // '.MuiOutlinedInput-notchedOutline': {
+          //   borderColor: theme.palette.primary.light
+          // },
+          // '&:hover': {
+          //   '.MuiOutlinedInput-notchedOutline': {
+          //     borderColor: theme.palette.primary.main
+          //   }
+          // },
           '& fieldset': {
+            borderWidth: '0.5px !important'
+          },
+          '&:hover fieldset': {
             borderWidth: '1px !important'
           }
         })
@@ -68,7 +72,7 @@ const theme = extendTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+          // color: theme.palette.primary.main,
           fontSize: 'small'
         })
       }

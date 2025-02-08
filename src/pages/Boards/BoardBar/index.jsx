@@ -12,12 +12,12 @@ import Button from '@mui/material/Button'
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1'
 
 const MENU_STYLE = {
-  color: 'primary.main',
-  bgcolor: 'white',
+  color: 'white',
+  bgcolor: 'transparent',
   border: 'none',
   borderRadius: '4px',
   '& .MuiSvgIcon-root': {
-    color: 'primary.main'
+    color: 'white'
   },
   '&:hover': {
     bgcolor: 'primary.50'
@@ -35,7 +35,8 @@ function BoardBar() {
       borderTop: '1px solid #00bfa5',
       gap: 2,
       overflowX: 'auto',
-      p: 2
+      p: 2,
+      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
     }}>
       <Box sx={{ display:'flex', alignContent: 'center', gap: 2 }}>
         <Chip sx={MENU_STYLE} icon={<SpaceDashboardIcon />} label="Trello Dashboard" clickable/>
@@ -45,7 +46,14 @@ function BoardBar() {
         <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter" clickable/>
       </Box>
       <Box sx={{ display:'flex', alignContent: 'center', gap: 2 }}>
-        <Button startIcon={<PersonAddAlt1Icon />} variant="outlined">Invited</Button>
+        <Button startIcon={<PersonAddAlt1Icon />} 
+          variant="outlined"
+          sx={{
+            color: 'white',
+            borderColor: 'white',
+            '&:hover': { borderColor: 'white' }
+          }}
+        >Invited</Button>
         <AvatarGroup max={4} sx ={{ 
           '& .MuiAvatar-root': {
             height: '34px',
