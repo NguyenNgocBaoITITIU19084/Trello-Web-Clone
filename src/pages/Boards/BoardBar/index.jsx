@@ -10,6 +10,7 @@ import AvatarGroup from '@mui/material/AvatarGroup'
 import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1'
+import { capitalizeFirstLetter } from '~/utils/formatter'
 
 const MENU_STYLE = {
   color: 'white',
@@ -24,7 +25,7 @@ const MENU_STYLE = {
   }
 }
 
-function BoardBar() {
+function BoardBar({ board }) {
   return (
     <Box sx={{
       height: (theme) => theme.trello.boardBarHeight,
@@ -39,14 +40,14 @@ function BoardBar() {
       bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
     }}>
       <Box sx={{ display:'flex', alignContent: 'center', gap: 2 }}>
-        <Chip sx={MENU_STYLE} icon={<SpaceDashboardIcon />} label="Trello Dashboard" clickable/>
-        <Chip sx={MENU_STYLE} icon={<VpnLockIcon/>} label="Public/Private Workspace" clickable/>
+        <Chip sx={MENU_STYLE} icon={<SpaceDashboardIcon />} label={board?.title} clickable/>
+        <Chip sx={MENU_STYLE} icon={<VpnLockIcon/>} label={capitalizeFirstLetter(board?.type)} clickable/>
         <Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="Add to Google Drive" clickable/>
         <Chip sx={MENU_STYLE} icon={<BoltIcon />} label="Automation" clickable/>
         <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter" clickable/>
       </Box>
       <Box sx={{ display:'flex', alignContent: 'center', gap: 2 }}>
-        <Button startIcon={<PersonAddAlt1Icon />} 
+        <Button startIcon={<PersonAddAlt1Icon />}
           variant="outlined"
           sx={{
             color: 'white',
