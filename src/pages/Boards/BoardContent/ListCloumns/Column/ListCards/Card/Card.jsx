@@ -12,7 +12,11 @@ import { CSS } from '@dnd-kit/utilities'
 
 function Card({ card }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: card._id, data: { ...card } })
-  const dndKitStyleCard = { transform: CSS.Translate.toString(transform), transition, opacity: isDragging ? 0.5 : undefined }
+  const dndKitStyleCard = {
+    transform: CSS.Translate.toString(transform),
+    transition, opacity: isDragging ? 0.5 : undefined,
+    border: isDragging ? '1px solid #2ecc71' : undefined
+  }
 
   const shouldShowCardAction = () => {
     return !!card?.memberIds.length || !!card?.comments.length || !!card?.attachments.length
